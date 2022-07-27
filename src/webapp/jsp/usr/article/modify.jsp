@@ -48,7 +48,6 @@
     </div>
 
     <div>
-        <span>수정</span>
         <div>
             <input type="submit" value="수정" />
         </div>

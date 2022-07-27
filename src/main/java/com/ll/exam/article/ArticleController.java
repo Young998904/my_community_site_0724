@@ -69,17 +69,20 @@ public class ArticleController {
         articleService.delete(id);
 
         rq.appendBody("<div>%d번 게시물이 삭제되었습니다.</div>".formatted(id));
-        rq.appendBody("<div><a href=\"/usr/article/list/free\">리스트로 이동</a></div>".formatted(id));
+        rq.appendBody("<div><a href=\"/usr/article/list/free\">리스트로 이동</a></div>");
     }
 
     public void doModify(Rq rq) {
         long id = rq.getLongPathValueByIndex(1, 0);
+
+        // modify.jsp 로 부터 넘겨 받음
         String title = rq.getParam("title", "");
         String body = rq.getParam("body", "");
 
-        rq.appendBody("<div>id : %d</div>".formatted(id));
-        rq.appendBody("<div>title : %s</div>".formatted(title));
-        rq.appendBody("<div>body : %s</div>".formatted(body));
+        articleService.modify(id, title, body);
+
+        rq.appendBody("<div>%d번 게시물이 수정되었습니다.</div>".formatted(id));
+        rq.appendBody("<div><a href=\"/usr/article/detail/free/%d\">수정된 글로 이동</a></div>".formatted(id));
     }
 
     public void showModify(Rq rq) {

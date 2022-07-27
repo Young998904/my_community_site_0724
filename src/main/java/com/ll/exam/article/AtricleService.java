@@ -24,4 +24,8 @@ public class AtricleService {
     public void delete(long id) {
         articleRepository.delete(id);
     }
+
+    public void modify(long id, String title, String body) {
+        articleRepository.modify(id, title, body);
+    }
 }
