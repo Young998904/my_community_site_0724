@@ -95,7 +95,7 @@ public class Rq {
         }
     }
 
-    public long getPathLongValueByIndex(int index, long defaultVaule) {
+    public long getLongPathValueByIndex(int index, long defaultVaule) {
         String value = getPathValueByIndex(index, null);
 
         if (value == null) {
