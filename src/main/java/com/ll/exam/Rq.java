@@ -56,7 +56,7 @@ public class Rq {
         }
     }
 
-    public void setAtrr(String name, Object value) {
+    public void setAttr(String name, Object value) {
         req.setAttribute(name, value);
     }
 
