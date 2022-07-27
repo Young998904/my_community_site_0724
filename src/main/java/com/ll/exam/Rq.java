@@ -79,7 +79,13 @@ public class Rq {
         return req.getRequestURI();
     }
 
-    public String getMethod() {
+    public String getRouteMethod() {
+        String method = getParam("_method", "");
+
+        if (method.length() > 0 ) {
+            return method.toUpperCase();
+        }
+
         return req.getMethod();
     }
 

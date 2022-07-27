@@ -19,13 +19,13 @@ public class DispatchServlet extends HttpServlet {
 //        // getRequsetURI 는 paramString 만 가지고 온다
 //        String url = req.getRequestURI();
 
-        switch (rq.getMethod()) {
+        switch (rq.getRouteMethod()) {
             case "GET":
                 switch (rq.getActionPath()) {
                     case "/usr/article/modify":
                         articleController.showModify(rq);
                         break;
-                    case "/usr/article/detail" :
+                    case "/usr/article/detail":
                         articleController.showDetail(rq);
                         break;
                     case "/usr/article/list":
@@ -44,14 +44,17 @@ public class DispatchServlet extends HttpServlet {
                     case "/usr/article/write":
                         articleController.doWrite(rq);
                         break;
-                    case "/usr/article/delete":
-                        articleController.doDelete(rq);
-                        break;
                     case "/usr/article/modify":
                         articleController.doModify(rq);
                         break;
                 }
                 break;
+            case "DELETE":
+                switch (rq.getActionPath()) {
+                    case "/usr/article/delete":
+                        articleController.doDelete(rq);
+                        break;
+                }
         }
     }
 
