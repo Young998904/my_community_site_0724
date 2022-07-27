@@ -36,14 +36,14 @@ public class ArticleController {
         long id = rq.getLongPathValueByIndex(1, 0);
 
         if (id == 0) {
-            rq.println("번호를 입력해주세요.");
+            rq.historyBack("번호를 입력해주세요.");
             return;
         }
 
         ArticleDto articleDto = articleService.findById(id);
 
         if (articleDto == null) {
-            rq.println("해당 글이 존재하지 않습니다.");
+            rq.historyBack("해당 글이 존재하지 않습니다.");
             return;
         }
 
@@ -55,14 +55,14 @@ public class ArticleController {
         long id = rq.getLongPathValueByIndex(1, 0);
 
         if (id == 0) {
-            rq.println("번호를 입력해주세요.");
+            rq.historyBack("번호를 입력해주세요.");
             return;
         }
 
         ArticleDto articleDto = articleService.findById(id);
 
         if (articleDto == null) {
-            rq.println("해당 글이 존재하지 않습니다.");
+            rq.historyBack("해당 글이 존재하지 않습니다.");
             return;
         }
 
@@ -73,6 +73,18 @@ public class ArticleController {
 
     public void doModify(Rq rq) {
         long id = rq.getLongPathValueByIndex(1, 0);
+
+        if (id == 0) {
+            rq.historyBack("번호를 입력해주세요.");
+            return;
+        }
+
+        ArticleDto articleDto = articleService.findById(id);
+
+        if (articleDto == null) {
+            rq.historyBack("해당 글이 존재하지 않습니다.");
+            return;
+        }
 
         // modify.jsp 로 부터 넘겨 받음
         String title = rq.getParam("title", "");
@@ -89,14 +101,14 @@ public class ArticleController {
         long id = rq.getLongPathValueByIndex(1, 0);
 
         if (id == 0) {
-            rq.println("번호를 입력해주세요.");
+            rq.historyBack("번호를 입력해주세요.");
             return;
         }
 
         ArticleDto articleDto = articleService.findById(id);
 
         if (articleDto == null) {
-            rq.println("해당 글이 존재하지 않습니다.");
+            rq.historyBack("해당 글이 존재하지 않습니다.");
             return;
         }
 
